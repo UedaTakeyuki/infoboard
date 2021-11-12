@@ -4,9 +4,8 @@
 // #include <QTimer>
 #include <QDateTime>
 #include <QSettings>
+#include <QString>
 
-#include <QtCore/QSocketNotifier>
-#include <QtCore/QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,24 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
         ui->label->setText(dt.toString("hh:mm:ss"));});
     timer->start(50);
     */
-
-    // https://qt5.jp/2015/08/qt-stdin/
-    QTextStream qstdin(stdin);
-    ui->label->setText(qstdin.readLine());
-    QSocketNotifier notifier(fileno(stdin), QSocketNotifier::Read);
-    QObject::connect(&notifier, &QSocketNotifier::activated, [&]() {
-        while(!qstdin.atEnd()) {
-            QString line = qstdin.readLine();
-            if (line.isEmpty()) {
-//                app.quit();
-                qDebug() << line;
-//                break;
-            } else {
-                qDebug() << line;
-                ui->label->setText(line);
-            }
-        }
-    });
 
     // https://stackoverflow.com/questions/24239822/how-to-remove-space-margin-that-between-qmainwindow-and-mdiarea/24240025
     centralWidget()->layout()->setContentsMargins(0, 0, 0, 0);
@@ -59,4 +40,8 @@ MainWindow::~MainWindow()
     setting.setValue("windowState", saveState());
 
     delete ui;
+}
+
+void MainWindow::updateLabelText(QString &text){
+    ui->label->setText(text);
 }
