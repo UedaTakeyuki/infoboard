@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
             if (line.isEmpty()) {
 //                app.quit();
                 qDebug() << line;
+                w.updateLabelText(line);
+
 //                break;
             } else {
                 qDebug() << line;
