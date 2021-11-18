@@ -1,0 +1,17 @@
+[Unit]
+Description=Get temp, humid, and humiditydeficit data & Post to the monitor
+After=rc-local.service
+
+[Service]
+User=pi
+Environment=DISPLAY=:0
+WorkingDirectory=/home/pi/infoboard
+ExecStart=/home/pi/infoboard/infoboard
+Restart=always
+#RestartSec=90
+RestartSec=30
+Type=simple
+PIDFile=/var/run/infoboard.pid
+
+[Install]
+WantedBy=multi-user.target
