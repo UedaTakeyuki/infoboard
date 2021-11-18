@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void updateLabelText(QString &text);
+//    void updateLabelText(QString &text);
 
 private:
     Ui::MainWindow *ui;

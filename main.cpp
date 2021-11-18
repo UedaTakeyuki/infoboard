@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
+    /*
     // https://qt5.jp/2015/08/qt-stdin/
     QTextStream qstdin(stdin);
     QSocketNotifier notifier(fileno(stdin), QSocketNotifier::Read);
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
         }
         qDebug() << "loop finished!";
     });
+    */
 
     return a.exec();
 }
