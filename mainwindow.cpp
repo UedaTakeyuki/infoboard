@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
         QString line = qstdin.readLine();
             if (!line.isEmpty()){
             ui->label->setText(line);}});
-    timer->start(50);
+    timer->start(500);
 
     // https://stackoverflow.com/questions/24239822/how-to-remove-space-margin-that-between-qmainwindow-and-mdiarea/24240025
     centralWidget()->layout()->setContentsMargins(0, 0, 0, 0);
