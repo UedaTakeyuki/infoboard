@@ -6,7 +6,7 @@ After=rc-local.service
 User=pi
 Environment=DISPLAY=:0
 WorkingDirectory=/home/pi/infoboard
-ExecStart=/home/pi/infoboard/infoboard
+ExecStart=/bin/sh -c "/home/pi/infoboard/infoboard < /home/pi/infoboard/info"
 Restart=always
 #RestartSec=90
 RestartSec=30

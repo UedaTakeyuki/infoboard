@@ -16,6 +16,10 @@ public:
     ~MainWindow();
 //    void updateLabelText(QString &text);
 
+    void restoreSettings();
+    void saveSettings();
+    void setDefaultGeometory();
+
 private:
     Ui::MainWindow *ui;
 };
